@@ -45,7 +45,10 @@
                 placeholder="Новый пароль"
                 formControlName="password" />
             </fieldset>
-
+            <button class="btn btn-outline-danger"
+                    (click)="logout()">
+              Выйти.
+            </button>
             <button class="btn btn-lg btn-primary pull-xs-right"
               type="submit">
               Обновить настройки
@@ -54,13 +57,10 @@
           </fieldset>
         </form>
 
-        <!-- Line break for logout button -->
+        <hr />
+        <hr />
         <hr />
 
-        <button class="btn btn-outline-danger"
-          (click)="logout()">
-          Или нажмите здесь чтобы выйти.
-        </button>
 
       </div>
     </div>

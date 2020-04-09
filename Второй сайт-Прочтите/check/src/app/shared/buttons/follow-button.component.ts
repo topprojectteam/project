@@ -22,7 +22,7 @@ export class FollowButtonComponent {
 
   toggleFollowing() {
     this.isSubmitting = true;
-    // TODO: remove nested subscribes, use mergeMap
+
 
     this.userService.isAuthenticated.pipe(concatMap(
       (authenticated) => {
@@ -32,7 +32,7 @@ export class FollowButtonComponent {
           return of(null);
         }
 
-        // Follow this profile if we aren't already
+
         if (!this.profile.following) {
           return this.profilesService.follow(this.profile.username)
           .pipe(tap(
@@ -43,7 +43,7 @@ export class FollowButtonComponent {
             err => this.isSubmitting = false
           ));
 
-        // Otherwise, unfollow this profile
+
         } else {
           return this.profilesService.unfollow(this.profile.username)
           .pipe(tap(
