@@ -18,6 +18,7 @@ export class BooksComponent implements OnInit {
   onSelect(book: Book): void {
     this.selectedBook = book;
   }
+  bcdghdrhgderh
 
 }
 
