@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-md-6 offset-md-3 mt-4">
+        <h3>Войти в аккаунт</h3>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+                <div class="form-group">
+                  <label for="loginUsername">Имя аккаунта</label>
+                  <input type="text" name="username" ngModel required #username="ngModel"
+                  class="form-control" id="loginUsername" placeholder="Введите аккаунт">
+                </div>
+                <div class="form-group">
+                  <label for="loginPassword">Пароль</label>
+                  <input type="password" name="password" ngModel required #password="ngModel"
+                  class="form-control" id="loginPassword" placeholder="Введите пароль">
+                </div>
+                <div class="form-group form-check">
+                  <a [routerLink]="['/reset-password']">Забыли пароль?</a>
+                </div>
+                <button type="submit" [disabled]="f.invalid" class="btn btn-primary">Войти</button>
+              </form>
+    </div>
+</div>
