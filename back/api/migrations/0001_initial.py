@@ -20,6 +20,7 @@ class Migration(migrations.Migration):
                 ('author', models.CharField(max_length=450)),
                 ('cost', models.FloatField()),
                 ('img_url', models.TextField(default='')),
+
             ],
         ),
         migrations.CreateModel(

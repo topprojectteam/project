@@ -15,6 +15,5 @@ class Migration(migrations.Migration):
             model_name='book',
             name='category',
             field=models.ForeignKey(default=2, on_delete=django.db.models.deletion.CASCADE, related_name='books', to='api.Category'),
-            preserve_default=False,
         ),
     ]

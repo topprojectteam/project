@@ -25,7 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="60322f2e-9257-4b4a-bb43-aa97760e572b">
-        <schema name="main" object-types="index, constraint, dataset trigger, table, view, column" />
+        <schema name="main" object-types="table, index, constraint, view, dataset trigger, column" />
       </connection>
     </loaded-nodes>
   </component>
@@ -35,17 +35,17 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="60322f2e-9257-4b4a-bb43-aa97760e572b" object-ref="schemas/main/tables/api_book" />
-      <object connection-id="60322f2e-9257-4b4a-bb43-aa97760e572b" object-ref="schemas/main/tables/api_category" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="60322f2e-9257-4b4a-bb43-aa97760e572b" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="60322f2e-9257-4b4a-bb43-aa97760e572b" dataset="main.api_publishinghouse" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="60322f2e-9257-4b4a-bb43-aa97760e572b" dataset="main.api_book" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="60322f2e-9257-4b4a-bb43-aa97760e572b" dataset="main.auth_group" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="60322f2e-9257-4b4a-bb43-aa97760e572b" dataset="main.api_category" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="60322f2e-9257-4b4a-bb43-aa97760e572b" dataset="main.api_review" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -92,7 +92,7 @@
           <deprecated-pwd value="" />
         </database>
         <properties>
-          <auto-commit value="false" />
+          <auto-commit value="true" />
         </properties>
         <ssh-settings>
           <active value="false" />

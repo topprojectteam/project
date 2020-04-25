@@ -1,0 +1,13 @@
+<div *ngIf="company">
+   <p>Id: {{ company.id }}</p>
+   <p>Назание: {{ company.name }}</p>
+   <p>Описание категории: {{company.description}}</p>
+   
+    <div *ngFor="let vacancy of vacancies">
+     <div >
+       <p>id: {{vacancy.id}}</p>
+       <!-- <p>name: {{vacancy.title}}</p> -->
+      </div>
+   </div>
+ ​
+ </div> 

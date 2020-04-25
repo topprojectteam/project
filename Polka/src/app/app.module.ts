@@ -1,24 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
-import { SharedModule } from './shared/shared.module';
-import { ValueComponent } from './value/value.component';
-import { AuthModule } from './auth/auth.module';
+import { BooksComponent } from './books/books.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ValueComponent
+    BooksComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    SharedModule,
-    AppRoutingModule,
-    AuthModule
-    
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
