@@ -17,6 +17,7 @@ class Category(models.Model):
 class PublishingHouse(models.Model):
     name = models.CharField(max_length=300)
 
+
 class TolstoyManager(models.Manager):
 
 
