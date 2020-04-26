@@ -1,9 +1,9 @@
-export class Company{
+export class Category{
     id:number;
     name:string;
     description:string;
 }
-export class Vacancy{
+export class Book{
     id:number;
     title:string;
     description:string;

@@ -34,8 +34,8 @@ class Book(models.Model):
     img_url = models.TextField(default='')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='categories')
     publishing_house = models.ForeignKey(PublishingHouse, on_delete=models.CASCADE, related_name='publishing_houses')
-    # objects = PollManager()
-    # Book.objects.all_books()
+
+
     objects = models.Manager()
     l_objects = TolstoyManager()
 

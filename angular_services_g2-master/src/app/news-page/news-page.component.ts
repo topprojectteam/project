@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CompanyService } from '../company.service';
-import {Company, Vacancy} from "../models";
+import {Category, Book} from "../models";
 
 @Component({
   selector: 'app-news-page',
@@ -9,24 +9,25 @@ import {Company, Vacancy} from "../models";
   styleUrls: ['./news-page.component.css']
 })
 export class NewsPageComponent implements OnInit {
-  company: Company;
-  vacancies: Vacancy[] = [];
+  category: Category;
+  books: Book[] = [];
 
   constructor(private companyService: CompanyService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getCompany();
-    this.getCompanyVacancies();
+    this.getCategory();
+    this.getCategoryBooks();
   }
 
-  getCompany() {
+  getCategory() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.companyService.getCompany(id).subscribe(company => this.company = company);
+    this.companyService.getCategory(id).subscribe(category => this.category = category);
   }
-  getCompanyVacancies() {
+  getCategoryBooks() {
     const id = +this.route.snapshot.paramMap.get('id');
-    const newsObservable = this.companyService.getCompanyVacancies(id)
-    .subscribe( vacancies => this.vacancies = vacancies);
+    const newsObservable = this.companyService.getCategoryBooks(id)
+    .subscribe( books => this.books = books);
   }
+  
 
 }

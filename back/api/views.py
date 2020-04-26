@@ -19,7 +19,7 @@ def categories_list(request):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.error, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        return Response({'error': serializer.errors}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
@@ -58,11 +58,11 @@ def books_list(request):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.error, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        return Response({'error': serializer.errors}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def books_detail(request, book_id):
+def book_detail(request, book_id):
     try:
         book = Book.objects.get(id=book_id)
     except Book.DoesNotExist as e:
@@ -96,7 +96,7 @@ def category_books(request, pk):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.error, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        return Response({'error': serializer.errors}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 

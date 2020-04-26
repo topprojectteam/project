@@ -8,12 +8,14 @@ import { NewsPageComponent } from './news-page/news-page.component';
 import {HTTP_INTERCEPTORS,HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 import {AuthInterceptor} from "./auth.interceptor";
+import { BooksDetailComponent } from './books-detail/books-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewsListComponent,
     NewsPageComponent,
+    BooksDetailComponent,
     
   ],
   imports: [

@@ -1,24 +1,41 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import {HttpClient} from "@angular/common/http";
-import {Company, LoginResponse, Vacancy} from "./models";
+import {HttpClient, HttpHandler, HttpHeaders} from "@angular/common/http";
+import {Category, LoginResponse, Book} from "./models";
 @Injectable({
   providedIn: 'root'
 })
 export class CompanyService {
-    BASE_URL = 'http://localhost:8000'
+    BASE_URL = 'http://localhost:8000';
+    httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
 
     constructor(private http:HttpClient){}
 
-  getCompanyList(): Observable<Company[]> {
-      return this.http.get<Company[]>(`${this.BASE_URL}/api/categories/`)
+  getCategoryList(): Observable<Category[]> {
+      return this.http.get<Category[]>(`${this.BASE_URL}/api/categories/`)
   }
-  getCompany(id): Observable<Company> {
-    return this.http.get<Company>(`${this.BASE_URL}/api/categories/${id}/`);
+  getCategory(id): Observable<Category> {
+    return this.http.get<Category>(`${this.BASE_URL}/api/categories/${id}/`);
   }
-  getCompanyVacancies(id): Observable<Vacancy[]>{
-    return this.http.get<Vacancy[]>(`${this.BASE_URL}/api/categories/${id}/books/`)
+  getCategoryBooks(id): Observable<Book[]>{
+    return this.http.get<Book[]>(`${this.BASE_URL}/api/categories/${id}/books/`)
   }
+  getBook(id): Observable<Book> {
+    return this.http.get<Book>(`${this.BASE_URL}/api/books/${id}/`);
+  }
+  deleteBook(id): Observable<Book>{
+    return this.http.delete<Book>(`${this.BASE_URL}/api/books/${id}/`);
+  }
+  addBook(book:Book): Observable<Book>{
+    return this.http.post<Book>(`${this.BASE_URL}/api/books/`, book,this.httpOptions);
+  }
+
+
+  // deleteBook(id): Observable<Book[]>{
+  //   return this.http.delete<Book>(`${this.BASE_URL}/api/categories/${id}/books/`)
+  // }
  
 
   login(username, password): Observable<LoginResponse> {

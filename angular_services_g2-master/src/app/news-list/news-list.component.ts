@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyService } from "../company.service";
-import {Company} from "../models"
+import {Category} from "../models"
 
 @Component({
   selector: 'app-news-list',
@@ -8,17 +8,17 @@ import {Company} from "../models"
   styleUrls: ['./news-list.component.css']
 })
 export class NewsListComponent implements OnInit {
-  companies: Company[] = [];
+  categories: Category[] = [];
 
   constructor(public companyService: CompanyService) { }
 
   ngOnInit(): void {
-    this.getCompanyList();
+    this.getCategoryList();
   }
 
-  getCompanyList() {
-    const newsObservable = this.companyService.getCompanyList()
-    .subscribe( companies => this.companies = companies);
+  getCategoryList() {
+    const newsObservable = this.companyService.getCategoryList()
+    .subscribe( categories => this.categories = categories);
   }
 
 

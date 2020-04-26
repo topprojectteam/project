@@ -1,0 +1,9 @@
+<div *ngIf="book">
+    <div>
+      <img src="{{book.img_url}}"> 
+      <p>АВТОР: {{book.author}}</p>
+      <p>ЦЕНА: {{book.cost}} тенге</p>
+     </div>
+     <button class="delete" title="delete book"
+     (click)="delete(book.id)">УДАЛИТЬ КНИГУ</button>
+    </div>
