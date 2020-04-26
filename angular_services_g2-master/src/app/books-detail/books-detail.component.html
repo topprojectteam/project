@@ -1,14 +1,16 @@
 <div *ngIf="book">
     <div>
       <div>
-        <label>Название книги:
-          <input #bookName />
+
+        <div>
+          <label>Название книги:
+          <input #bookTitle [(ngModel)]="book.title" placeholder="title"/>
         </label>
-        <!-- (click) passes input value to add() and then clears the input -->
-        <button (click)="edit(bookName.value); bookName.value=''">
-          Изменить
+        <button (click)="edit(bookTitle.value);">
+          изменить
         </button>
-      </div>
+        </div>
+        
 
       <img src="{{book.img_url}}"> 
       <p>Название: {{book.title}}</p>
@@ -18,10 +20,5 @@
      <button class="delete" title="delete book"
      (click)="delete(book)">УДАЛИТЬ КНИГУ</button>
 
-    </div>
-    <div>
-     <label>Ваш отзыв:
-      <input #Отзыв />
-    </label>
-  </div>
+  <hr>
   <button (click)="goBack()">go back</button>

@@ -30,7 +30,9 @@ export class CompanyService {
     return this.http.delete<Book>(`${this.BASE_URL}/api/books/${id}/`);
   }
   editBook(book:Book): Observable<Book>{
-    return this.http.post<Book>(`${this.BASE_URL}/api/books/`, book,this.httpOptions);
+    const id = typeof book === 'number' ? book : book.id;
+    const body = {title:book.title}
+    return this.http.put<Book>(`${this.BASE_URL}/api/books/${id}/`, body,this.httpOptions);
   }
 
 

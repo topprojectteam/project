@@ -2,9 +2,11 @@
    <!-- <p>Id: {{ category.id }}</p> -->
    <p>Категория: {{ category.name }}</p>
    <p>Описание категории: {{category.description}}</p>
+   <hr>
    
    <div *ngFor="let book of books">
    <a [routerLink]="'/category/' + category.id + '/books/'+ book.id">{{book.title}}</a>
    ​</div>
  </div> 
+ <hr>
  <button (click)="goBack()">go back</button>

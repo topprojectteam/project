@@ -30,16 +30,17 @@ export class BooksDetailComponent implements OnInit {
   }
 
   edit(title: string): void {
+    console.log("h");
     title = title.trim();
-    if(!title) {return;}
     this.companyService.editBook({title} as Book)
       .subscribe(book => {
         this.books.push(book);
-      });
-
+      }); 
+       console.log("h");
   }
+
+
   goBack(): void {
-    this.companyService.editBook(this.book).subscribe()
     this.location.back();
   }
 

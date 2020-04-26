@@ -1,5 +1,7 @@
-<div *ngIf="!logged">
-    <h1>Login form</h1>
+<div class="a">
+
+<div class="wrapper" *ngIf="!logged">
+    <h1>ВХОД В POLKA</h1>
     <p>Username:<input type="text" [(ngModel)]="username"></p>
     <p>Password:<input type="text" [(ngModel)]="password"></p>
 
@@ -8,10 +10,24 @@
 
 <div class="wrapper" *ngIf="logged">
   <h1 class="header">ПОЛКА</h1>
-  <h2>Категории:</h2>
+  
   <router-outlet></router-outlet>
 
   <button (click) = "logout()">Logout </button>
 
   
 </div>
+
+
+  <div class="contact">
+   
+    <div>СВЯЗАТЬСЯ</div>
+    <div>Толе би 59, Алматы 050000, Казахстан</div>
+    <div>       ermahanalia@gmail.com</div>
+    <div>          87784351600</div>
+
+    <div>           ©2020 ПОЛКА.</div>
+ 
+        
+       
+  </div>

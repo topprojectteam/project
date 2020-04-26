@@ -1,2 +1,10 @@
-.wrapper {
+.contact {
+    background-image: url(/assets/b.png);
+    background-repeat: repeat;
+    padding-left: 700px;
+    padding-top: 20px;
+}
+.wrapper{
+    padding-left: 700px;
+    padding-bottom: 20px;
 }
