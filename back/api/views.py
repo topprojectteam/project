@@ -3,8 +3,8 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 
-from api.models import Book, Category
-from api.serializers import CategorySerializer,BookSerializer
+from api.models import Book, Category,Review
+from api.serializers import CategorySerializer,BookSerializer,ReviewSerializer
 
 
 @api_view(['GET', 'POST'])
@@ -61,7 +61,7 @@ def books_list(request):
         return Response({'error': serializer.errors}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-@api_view(['GET', 'PUT', 'DELETE'])
+@api_view(['GET', 'PUT', 'DELETE','POST'])
 def book_detail(request, book_id):
     try:
         book = Book.objects.get(id=book_id)
@@ -71,6 +71,13 @@ def book_detail(request, book_id):
     if request.method == 'GET':
         serializer = BookSerializer(book)
         return Response(serializer.data)
+
+    elif request.method == 'POST':
+        serializer = ReviewSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response({'error': serializer.errors}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     elif request.method == 'PUT':
         serializer = BookSerializer(instance=book, data=request.data)

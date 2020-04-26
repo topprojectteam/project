@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CompanyService } from '../company.service';
+import { Location } from '@angular/common';
 import { Book} from "../models";
 
 @Component({
@@ -12,7 +13,7 @@ export class BooksDetailComponent implements OnInit {
   book: Book;
   books: Book[] = [];
 
-  constructor(private companyService: CompanyService, private route: ActivatedRoute ) {}
+  constructor(private companyService: CompanyService, private route: ActivatedRoute,private location: Location ) {}
 
   ngOnInit(): void {
     this.getBook();
@@ -28,26 +29,19 @@ export class BooksDetailComponent implements OnInit {
     this.companyService.deleteBook(book).subscribe();
   }
 
-  addBook(): void{
-    const title = (document.getElementById('title') as HTMLInputElement).value.trim();
-    const description = (document.getElementById('description') as HTMLInputElement).value.trim();
-    const author = (document.getElementById('author') as HTMLInputElement).value.trim();
-    const img_url = (document.getElementById('img_url') as HTMLInputElement).value.trim();
-    const cost = +(document.getElementById('cost') as HTMLInputElement).value.trim();
-
-
-
-
-    const request: Book = {title,description,author,img_url,cost};
-    this.companyService.addBook(request).subscribe(() => alert('book added'));
-
-    (document.getElementById('title') as HTMLInputElement).value = null;
-    (document.getElementById('description') as HTMLInputElement).value = null;
-    (document.getElementById('author') as HTMLInputElement).value = null;
-    (document.getElementById('img_url') as HTMLInputElement).value = null;
-    (document.getElementById('cost') as HTMLInputElement).value = null;
-    (document.getElementById('cost') as HTMLInputElement).value = null;
+  edit(title: string): void {
+    title = title.trim();
+    if(!title) {return;}
+    this.companyService.editBook({title} as Book)
+      .subscribe(book => {
+        this.books.push(book);
+      });
 
   }
+  goBack(): void {
+    this.companyService.editBook(this.book).subscribe()
+    this.location.back();
+  }
+
 
 }

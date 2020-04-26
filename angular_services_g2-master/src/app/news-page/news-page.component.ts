@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CompanyService } from '../company.service';
+import { Location } from '@angular/common';
 import {Category, Book} from "../models";
 
 @Component({
@@ -12,7 +13,7 @@ export class NewsPageComponent implements OnInit {
   category: Category;
   books: Book[] = [];
 
-  constructor(private companyService: CompanyService, private route: ActivatedRoute) { }
+  constructor(private companyService: CompanyService, private route: ActivatedRoute,private location: Location) { }
 
   ngOnInit(): void {
     this.getCategory();
@@ -28,6 +29,8 @@ export class NewsPageComponent implements OnInit {
     const newsObservable = this.companyService.getCategoryBooks(id)
     .subscribe( books => this.books = books);
   }
-  
+  goBack(): void {
+    this.location.back();
+  }
 
 }

@@ -25,17 +25,15 @@ export class CompanyService {
   getBook(id): Observable<Book> {
     return this.http.get<Book>(`${this.BASE_URL}/api/books/${id}/`);
   }
-  deleteBook(id): Observable<Book>{
+  deleteBook(book:Book | number): Observable<Book>{
+    const id = typeof book === 'number' ? book : book.id;
     return this.http.delete<Book>(`${this.BASE_URL}/api/books/${id}/`);
   }
-  addBook(book:Book): Observable<Book>{
+  editBook(book:Book): Observable<Book>{
     return this.http.post<Book>(`${this.BASE_URL}/api/books/`, book,this.httpOptions);
   }
 
 
-  // deleteBook(id): Observable<Book[]>{
-  //   return this.http.delete<Book>(`${this.BASE_URL}/api/categories/${id}/books/`)
-  // }
  
 
   login(username, password): Observable<LoginResponse> {

@@ -2,8 +2,8 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from api.models import Book, Review,PublishingHouse
-from api.serializers import CategorySerializer,BookSerializer,PublishingHouseSerializer,ReviewSerializer
+from api.models import Book,PublishingHouse
+from api.serializers import BookSerializer,PublishingHouseSerializer
 
 class PublishingHouseListAPIView(APIView):
     def get(self, request):
