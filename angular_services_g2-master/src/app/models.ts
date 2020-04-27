@@ -10,6 +10,8 @@ export class Book{
     author:string;
     cost:number;
     img_url:string;
+    category_id:number;
+    publishing_house_id:number;
 
 }
 

@@ -21,28 +21,23 @@ export class BooksDetailComponent implements OnInit {
 
   getBook() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.companyService.getBook(id).subscribe(book => this.book = book);
-  }
+    this.companyService.getBook(id).subscribe(book => this.book = book);}
+
 
   delete(book: Book): void {
     this.books = this.books.filter(book => book !== book);
     this.companyService.deleteBook(book).subscribe();
   }
+  
+ save(): void {
+  this.companyService.updateBook(this.book)
+    .subscribe(() => alert('переименовано в ' + this.book.title));
+}
 
-  edit(title: string): void {
-    console.log("h");
-    title = title.trim();
-    this.companyService.editBook({title} as Book)
-      .subscribe(book => {
-        this.books.push(book);
-      }); 
-       console.log("h");
-  }
 
 
   goBack(): void {
     this.location.back();
   }
-
 
 }

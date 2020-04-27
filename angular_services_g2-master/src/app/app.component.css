@@ -7,4 +7,9 @@
 .wrapper{
     padding-left: 700px;
     padding-bottom: 20px;
+    font-size: larger;
+}
+.a{
+    margin-right: 40px;
+    margin-left: 40px;
 }

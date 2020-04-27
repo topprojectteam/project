@@ -1,9 +1,7 @@
-<div class="a">
-
 <div class="wrapper" *ngIf="!logged">
     <h1>ВХОД В POLKA</h1>
     <p>Username:<input type="text" [(ngModel)]="username"></p>
-    <p>Password:<input type="text" [(ngModel)]="password"></p>
+    <p>Password: <input type="text" [(ngModel)]="password"></p>
 
     <button (click) = "login()">Login </button>
 </div>
@@ -15,19 +13,20 @@
 
   <button (click) = "logout()">Logout </button>
 
-  
 </div>
 
+ <hr class="a"> 
 
   <div class="contact">
    
     <div>СВЯЗАТЬСЯ</div>
     <div>Толе би 59, Алматы 050000, Казахстан</div>
-    <div>       ermahanalia@gmail.com</div>
-    <div>          87784351600</div>
+    <div>ermahanalia@gmail.com</div>
+    <div>87784351600</div>
 
-    <div>           ©2020 ПОЛКА.</div>
+    <div>©2020 ПОЛКА.</div>
  
         
        
   </div>
+  

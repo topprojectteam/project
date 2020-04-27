@@ -7,9 +7,9 @@ import {Category, LoginResponse, Book} from "./models";
 })
 export class CompanyService {
     BASE_URL = 'http://localhost:8000';
-    httpOptions = {
+    httpOptions ={
       headers: new HttpHeaders({'Content-Type': 'application/json'})
-    };
+    }; 
 
     constructor(private http:HttpClient){}
 
@@ -29,14 +29,11 @@ export class CompanyService {
     const id = typeof book === 'number' ? book : book.id;
     return this.http.delete<Book>(`${this.BASE_URL}/api/books/${id}/`);
   }
-  editBook(book:Book): Observable<Book>{
-    const id = typeof book === 'number' ? book : book.id;
-    const body = {title:book.title}
-    return this.http.put<Book>(`${this.BASE_URL}/api/books/${id}/`, body,this.httpOptions);
+  updateBook (book: Book): Observable<any> {
+    return this.http.put(`${this.BASE_URL}/api/books/${book.id}/`, book, this.httpOptions);
   }
 
 
- 
 
   login(username, password): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${this.BASE_URL}/api/login/`, {
@@ -46,6 +43,9 @@ export class CompanyService {
   }
 
 
+// const body = {title: book.title,description:book.description,
+    //   author:book.author,cost:book.const,img_url:book.img_url,
+    //   category_id:book.category_id,publishing_house_id:book.publishing_house_id}
 
 
 

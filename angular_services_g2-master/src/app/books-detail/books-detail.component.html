@@ -1,24 +1,27 @@
+
 <div *ngIf="book">
-    <div>
-      <div>
-
-        <div>
-          <label>Название книги:
-          <input #bookTitle [(ngModel)]="book.title" placeholder="title"/>
-        </label>
-        <button (click)="edit(bookTitle.value);">
-          изменить
-        </button>
-        </div>
-        
-
-      <img src="{{book.img_url}}"> 
+      
       <p>Название: {{book.title}}</p>
       <p>АВТОР: {{book.author}}</p>
       <p>ЦЕНА: {{book.cost}} тенге</p>
-     </div>
-     <button class="delete" title="delete book"
-     (click)="delete(book)">УДАЛИТЬ КНИГУ</button>
+      <img src="{{book.img_url}}"> 
+</div>
 
-  <hr>
-  <button (click)="goBack()">go back</button>
+
+<div>
+       <input type="text" [(ngModel)]="book.title" placeholder="title"/> 
+      <button (click)="save()">Изменить</button> 
+</div>
+
+<div>
+      <button class="delete" title="delete book"
+      (click)="delete(book)">УДАЛИТЬ КНИГУ</button>    
+</div>
+
+<div class="b">
+      <button (click)="goBack()" >go back</button>      
+</div>
+ 
+
+ 
+
